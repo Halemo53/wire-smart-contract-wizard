@@ -1,0 +1,152 @@
+/*
+ * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
+ * Keep every @import in this top block. Web fonts load via <link> in src/routes/__root.tsx.
+ */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system: dark-only developer palette.
+ * Neutral dark base + electric blue accent + emerald success. No purple anywhere.
+ */
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-elevated: var(--elevated);
+  --color-code: var(--code);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-link: var(--link);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.176 0.014 258.4); /* #0D1117 */
+  --foreground: oklch(0.943 0.011 243.7); /* #E6EDF3 */
+  --card: oklch(0.22 0.016 256.8); /* #161B22 */
+  --card-foreground: oklch(0.943 0.011 243.7);
+  --elevated: oklch(0.246 0.015 256.8); /* #1C2128 */
+  --code: oklch(0.176 0.014 258.4);
+  --popover: oklch(0.246 0.015 256.8);
+  --popover-foreground: oklch(0.943 0.011 243.7);
+  --primary: oklch(0.618 0.193 258.3); /* #2F81F7 */
+  --primary-foreground: oklch(0.985 0.005 250);
+  --link: oklch(0.715 0.152 253.3); /* #58A6FF */
+  --success: oklch(0.695 0.181 145.6); /* #3FB950 */
+  --success-foreground: oklch(0.176 0.014 258.4);
+  --warning: oklch(0.72 0.14 79.9);
+  --secondary: oklch(0.267 0.015 256.8); /* #21262D */
+  --secondary-foreground: oklch(0.943 0.011 243.7);
+  --muted: oklch(0.246 0.015 256.8);
+  --muted-foreground: oklch(0.662 0.018 250.9); /* #8B949E */
+  --accent: oklch(0.267 0.015 256.8);
+  --accent-foreground: oklch(0.943 0.011 243.7);
+  --destructive: oklch(0.665 0.205 27);
+  --destructive-foreground: oklch(0.985 0.005 250);
+  --border: oklch(0.33 0.015 252.3); /* #30363D */
+  --input: oklch(0.33 0.015 252.3);
+  --ring: oklch(0.715 0.152 253.3);
+  --chart-1: oklch(0.618 0.193 258.3);
+  --chart-2: oklch(0.695 0.181 145.6);
+  --chart-3: oklch(0.715 0.152 253.3);
+  --chart-4: oklch(0.72 0.14 79.9);
+  --chart-5: oklch(0.662 0.018 250.9);
+  --sidebar: oklch(0.22 0.016 256.8);
+  --sidebar-foreground: oklch(0.943 0.011 243.7);
+  --sidebar-primary: oklch(0.618 0.193 258.3);
+  --sidebar-primary-foreground: oklch(0.985 0.005 250);
+  --sidebar-accent: oklch(0.267 0.015 256.8);
+  --sidebar-accent-foreground: oklch(0.943 0.011 243.7);
+  --sidebar-border: oklch(0.33 0.015 252.3);
+  --sidebar-ring: oklch(0.715 0.152 253.3);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 40%, transparent);
+  }
+}
+
+/* Faint technical grid behind the app shell. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--border) 35%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--border) 35%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-step-in {
+  animation: step-in 0.28s ease-out both;
+}
